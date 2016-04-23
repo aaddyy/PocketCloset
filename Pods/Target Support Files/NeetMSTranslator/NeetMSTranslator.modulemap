@@ -1,0 +1,6 @@
+framework module NeetMSTranslator {
+  umbrella header "NeetMSTranslator-umbrella.h"
+
+  export *
+  module * { export * }
+}

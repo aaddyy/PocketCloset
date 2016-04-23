@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (3.2.0)
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - MyLibrary (0.0.1)
+  - NeetMSTranslator (0.0.4)
+  - Onboard (2.1.9)
+  - Parse (1.13.0):
+    - Bolts/Tasks (~> 1.6)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (= 3.2.0)
+  - Bolts
+  - MyLibrary (from `https://github.com/aaddyy/MyLibrary.git`)
+  - NeetMSTranslator
+  - Onboard
+  - Parse
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  MyLibrary:
+    :git: https://github.com/aaddyy/MyLibrary.git
+
+CHECKOUT OPTIONS:
+  MyLibrary:
+    :commit: 524073a037cfa232fbee2a908d0d7013378d099c
+    :git: https://github.com/aaddyy/MyLibrary.git
+
+SPEC CHECKSUMS:
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  MyLibrary: 2edb779470e9538b19342598c63de27d7b2e7aa2
+  NeetMSTranslator: 81f3dc10eb0f4c6050a35c1fd7715a9e3f0b9d44
+  Onboard: 4d92c763ed15f939071dec12e87ed9e8dc036746
+  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+COCOAPODS: 0.39.0

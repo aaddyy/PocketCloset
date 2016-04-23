@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>AdobeLabsMagicVectorizer Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">AdobeCreativeSDKLabs.framework </a></h1>
+				<a id="developerHome" href="../index.html">Adobe Systems Incorporated</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">AdobeLabsMagicVectorizer Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/downsampling">&nbsp;&nbsp;&nbsp;&nbsp;downsampling</option>
+	
+	<option value="//api/name/iso">&nbsp;&nbsp;&nbsp;&nbsp;iso</option>
+	
+	<option value="//api/name/makeBezierCurves">&nbsp;&nbsp;&nbsp;&nbsp;makeBezierCurves</option>
+	
+	<option value="//api/name/smoothing">&nbsp;&nbsp;&nbsp;&nbsp;smoothing</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/vectorize:">&nbsp;&nbsp;&nbsp;&nbsp;- vectorize:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/downsampling">downsampling</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/iso">iso</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/makeBezierCurves">makeBezierCurves</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smoothing">smoothing</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/vectorize:">vectorize:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="AdobeLabsMagicVectorizer Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">AdobeLabsMagicVectorizer Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">AdobeLabsMagicVectorizer.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><code>AdobeLabsMagicVectorizer</code> is a single channel vectorizer.
+  It turns an image into a cubic bezier path of outlines.</p>
+
+<pre><code>// load a UIImage, make a Magic Vectorizer, and tell it to vectorize the image
+UIBezierPath * vectorizedPath =
+    [[[AdobeLabsMagicVectorizer alloc] init] vectorize: [UIImage imageNamed:@"myImage.jpg"]];
+</code></pre>
+
+<p>Note: you wouldn&rsquo;t normally alloc and init the vectorizer and tell it to vectorize all at once,
+but I wanted to illustrate usage in one line of code!  :)</p>
+
+<p>  You would probably do something more like this:</p>
+
+<pre><code>UIImage * sourceImage = [UIImage imageNamed: @"myImage.jpg"];
+AdobeLabsMagicVectorizer * magicVectorizer = [[AdobeLabsMagicVectorizer alloc] init];
+
+magicVectorizer.smoothing = 3.0;           // 0.0 - 4.0, default 1.0
+magicVectorizer.downsampling = 2;          // 0 - 4, default 1
+magicVectorizer.makeBezierCurves = YES;    // default YES, NO means create line segments
+magicVectorizer.iso = 228;                 // 1 - 254, default 127, see below for meaning
+
+UIBezierPath * vectorizedPath = [magicVectorizer vectorize: sourceImage];
+</code></pre>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smoothing">&nbsp;&nbsp;smoothing</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/downsampling">&nbsp;&nbsp;downsampling</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/makeBezierCurves">&nbsp;&nbsp;makeBezierCurves</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/iso">&nbsp;&nbsp;iso</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/vectorize:">&ndash;&nbsp;vectorize:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/downsampling" title="downsampling"></a>
+	<h3 class="subsubtitle method-title">downsampling</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>How much downsampling to apply before vectorization.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property NSUInteger downsampling</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>How much downsampling to apply before vectorization.</p>
+
+<p>Downsampling may be specified in the range of [0 .. 4].  The default is 1.
+This value is a power of 2, and determines how the image will be downsampled
+before vectorization is performed.  The image will be downsampled into blocks of 2<sup>downsampling</sup> pixels.
+Downsampling trades quality for speed.  A higher value will make the algorithm run faster at the
+expense of quality.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicVectorizer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/iso" title="iso"></a>
+	<h3 class="subsubtitle method-title">iso</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The iso value for the grayscale threshold.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property NSUInteger iso</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The iso value for the grayscale threshold.</p>
+
+<p>This iso value can be specified in the range of [1 .. 254].  The default is 127.
+Internally the vectorizer operates on 8-bit grayscale images.  (Color images will
+be converted to grayscale internally before the algorithm is applied).  The iso value determines
+at what threshhold of depth (grayscale value) the Vectorizer will operate.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicVectorizer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/makeBezierCurves" title="makeBezierCurves"></a>
+	<h3 class="subsubtitle method-title">makeBezierCurves</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Whether to create Bezier Curves or Line Segments</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property BOOL makeBezierCurves</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Whether to create Bezier Curves or Line Segments</p>
+
+<p>This value defaults to YES which causes the algorithm to make bezier curves.  Setting it to NO will
+cause line segments to be produced instead of bezier curves.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicVectorizer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smoothing" title="smoothing"></a>
+	<h3 class="subsubtitle method-title">smoothing</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>How much smoothing to apply for vectorization.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property CGFloat smoothing</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>How much smoothing to apply for vectorization.</p>
+
+<p>Smoothing may be specified in the range of [0.0 .. 4.0].  The default is 1.
+The value is the sigma value input to a Gaussian Blur which is performed before
+vectorization.  The higher the sigma value, the more blur.  Blur can help get rid
+of speckles that interfere with the vectorization algorithm.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicVectorizer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/vectorize:" title="vectorize:"></a>
+	<h3 class="subsubtitle method-title">vectorize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Vectorizes a UIImage into a UIBezierPath</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIBezierPath *)vectorize:(UIImage *)<em>image</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>image</em></dt>
+			<dd><p>the UIImage to vectorize</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the UIBezier path of the vectorized image</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Vectorizes a UIImage into a UIBezierPath</p><div class="note"><p><strong>Note:</strong> This function executes on the current thread.  Also, if the user is on the network
+and not logged into Creative Cloud, vectorize will not operate and will return nil.
+It is the responsibility of the caller to ensure, if the user is on the network, that the
+user is authenticated with Creative Cloud prior to calling this function.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicVectorizer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2016 Adobe Systems Incorporated. All rights reserved. (Last updated: 2016-01-19)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

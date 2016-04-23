@@ -1,0 +1,1896 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>AdobeLabsMagicCurve Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">AdobeCreativeSDKLabs.framework </a></h1>
+				<a id="developerHome" href="../index.html">Adobe Systems Incorporated</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">AdobeLabsMagicCurve Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/isClosed">&nbsp;&nbsp;&nbsp;&nbsp;isClosed</option>
+	
+	<option value="//api/name/isOpen">&nbsp;&nbsp;&nbsp;&nbsp;isOpen</option>
+	
+	<option value="//api/name/numControlPoints">&nbsp;&nbsp;&nbsp;&nbsp;numControlPoints</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addControlPoint:isCorner:">&nbsp;&nbsp;&nbsp;&nbsp;- addControlPoint:isCorner:</option>
+	
+	<option value="//api/name/canInsertControlPoint:withRadius:">&nbsp;&nbsp;&nbsp;&nbsp;- canInsertControlPoint:withRadius:</option>
+	
+	<option value="//api/name/clear">&nbsp;&nbsp;&nbsp;&nbsp;- clear</option>
+	
+	<option value="//api/name/controlPointAt:">&nbsp;&nbsp;&nbsp;&nbsp;- controlPointAt:</option>
+	
+	<option value="//api/name/findClosestControlPoint:withRadius:andControlPointIndexToSet:">&nbsp;&nbsp;&nbsp;&nbsp;- findClosestControlPoint:withRadius:andControlPointIndexToSet:</option>
+	
+	<option value="//api/name/findClosestPositionOnCurve:withRadius:andClosestPositionToSet:">&nbsp;&nbsp;&nbsp;&nbsp;- findClosestPositionOnCurve:withRadius:andClosestPositionToSet:</option>
+	
+	<option value="//api/name/generateUIBezierPath">&nbsp;&nbsp;&nbsp;&nbsp;- generateUIBezierPath</option>
+	
+	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
+	
+	<option value="//api/name/initWithMagicCurve:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithMagicCurve:</option>
+	
+	<option value="//api/name/initWithUIBezierPath:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithUIBezierPath:</option>
+	
+	<option value="//api/name/insertControlPoint:withRadius:andControlPointIndexToSet:">&nbsp;&nbsp;&nbsp;&nbsp;- insertControlPoint:withRadius:andControlPointIndexToSet:</option>
+	
+	<option value="//api/name/isCorner:">&nbsp;&nbsp;&nbsp;&nbsp;- isCorner:</option>
+	
+	<option value="//api/name/removeControlPoint:">&nbsp;&nbsp;&nbsp;&nbsp;- removeControlPoint:</option>
+	
+	<option value="//api/name/scale:">&nbsp;&nbsp;&nbsp;&nbsp;- scale:</option>
+	
+	<option value="//api/name/setControlPoint:isCorner:">&nbsp;&nbsp;&nbsp;&nbsp;- setControlPoint:isCorner:</option>
+	
+	<option value="//api/name/setControlPoint:withPosition:">&nbsp;&nbsp;&nbsp;&nbsp;- setControlPoint:withPosition:</option>
+	
+	<option value="//api/name/setControlPoint:withPosition:andIsCorner:">&nbsp;&nbsp;&nbsp;&nbsp;- setControlPoint:withPosition:andIsCorner:</option>
+	
+	<option value="//api/name/splitClosedCurve:">&nbsp;&nbsp;&nbsp;&nbsp;- splitClosedCurve:</option>
+	
+	<option value="//api/name/splitOpenCurve:">&nbsp;&nbsp;&nbsp;&nbsp;- splitOpenCurve:</option>
+	
+	<option value="//api/name/toggleCorner:">&nbsp;&nbsp;&nbsp;&nbsp;- toggleCorner:</option>
+	
+	<option value="//api/name/translate:">&nbsp;&nbsp;&nbsp;&nbsp;- translate:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Properties">Properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Instance Methods">Instance Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isClosed">isClosed</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isOpen">isOpen</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numControlPoints">numControlPoints</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addControlPoint:isCorner:">addControlPoint:isCorner:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canInsertControlPoint:withRadius:">canInsertControlPoint:withRadius:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clear">clear</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controlPointAt:">controlPointAt:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findClosestControlPoint:withRadius:andControlPointIndexToSet:">findClosestControlPoint:withRadius:andControlPointIndexToSet:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findClosestPositionOnCurve:withRadius:andClosestPositionToSet:">findClosestPositionOnCurve:withRadius:andClosestPositionToSet:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/generateUIBezierPath">generateUIBezierPath</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithMagicCurve:">initWithMagicCurve:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithUIBezierPath:">initWithUIBezierPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insertControlPoint:withRadius:andControlPointIndexToSet:">insertControlPoint:withRadius:andControlPointIndexToSet:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isCorner:">isCorner:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeControlPoint:">removeControlPoint:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scale:">scale:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setControlPoint:isCorner:">setControlPoint:isCorner:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setControlPoint:withPosition:">setControlPoint:withPosition:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setControlPoint:withPosition:andIsCorner:">setControlPoint:withPosition:andIsCorner:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/splitClosedCurve:">splitClosedCurve:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/splitOpenCurve:">splitOpenCurve:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleCorner:">toggleCorner:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/translate:">translate:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="AdobeLabsMagicCurve Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">AdobeLabsMagicCurve Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">AdobeLabsMagicCurve.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The <code>AdobeLabsMagicCurve</code> class provides an intuitive easy way to generate curves and shapes by adding control points that, unlike traditional Bezier curves, sit on the curve directly.  When the control points are adjusted, the curve magically transforms according to human perceptual expectation.    <code>AdobeLabsMagicCurve</code> provides an intuitive API for the construction of curves and shapes based on the specification of control points in any arbitrary, user-defined coordinate system, including UIView coordinates for direct integration into iOS apps.  Magic Curves can be manipulated under direct programmatic control, or driven by UI actions that call public API functions.</p>
+
+<p>Magic Curves can be scaled and translated and converted into Apple&rsquo;s UIBezierPath class for easy rendering.</p>
+
+<p>The following code illustrates how to programatically create a Magic Curve that is a square:</p>
+
+<pre><code>AdobeLabsMagicCurve * square = [[AdobeLabsMagicCurve alloc] init];
+[square addControlPoint: CGPointMake(  0,   0) isCorner: YES];
+[square addControlPoint: CGPointMake(100,   0) isCorner: YES];
+[square addControlPoint: CGPointMake(100, 100) isCorner: YES];
+[square addControlPoint: CGPointMake(  0, 100) isCorner: YES];
+square.isClosed = YES;
+</code></pre>
+
+<p>A circle may be created using the same coordinates, but without using corners:</p>
+
+<pre><code>AdobeLabsMagicCurve * circle = [[AdobeLabsMagicCurve alloc] init];
+[circle addControlPoint: CGPointMake(  0,   0) isCorner: NO];
+[circle addControlPoint: CGPointMake(100,   0) isCorner: NO];
+[circle addControlPoint: CGPointMake(100, 100) isCorner: NO];
+[circle addControlPoint: CGPointMake(  0, 100) isCorner: NO];
+circle.isClosed = YES;
+</code></pre>
+
+<p>Note that the circle will be slightly larger than the square since the control points describe the same corners as the square and the arcs of the curve pass through the control points.</p>
+
+<p>By adjusting the control point positions to the apex of the arcs, the circle can be bounded by the same size as the square:</p>
+
+<pre><code>AdobeLabsMagicCurve * circle = [[AdobeLabsMagicCurve alloc] init];
+[circle addControlPoint: CGPointMake( 50,   0) isCorner: NO];
+[circle addControlPoint: CGPointMake(100,  50) isCorner: NO];
+[circle addControlPoint: CGPointMake( 50, 100) isCorner: NO];
+[circle addControlPoint: CGPointMake(  0,  50) isCorner: NO];
+circle.isClosed = YES;
+</code></pre>
+
+<p>Not only can shapes be created with <code>AdobeLabsMagicCurve</code> but open paths may also be created:</p>
+
+<pre><code>AdobeLabsMagicCurve * path = [[AdobeLabsMagicCurve alloc] init];
+[path addControlPoint: CGPointMake(  50,  0) isCorner: NO];
+[path addControlPoint: CGPointMake(100,  50) isCorner: NO];
+[path addControlPoint: CGPointMake( 50, 100) isCorner: NO];
+path.isOpen = YES;
+</code></pre>
+
+<p>Note the use of the isOpen and isClosed properties to specify whether the MagicCurve is an open path or a closed shape.</p>
+
+<p>Rendering the magic curve is easy.  Here is an example of how to do this in your UIView&rsquo;s drawRect method:</p>
+
+<pre><code>- (void) drawRect:(CGRect)rect {
+
+    // 1.  set fill and stroke colors
+    [[UIColor redColor] setFill];
+    [[UIColor blackColor] setStroke];
+
+    // 2.  generate a UIBezierPath from the Magic Curve
+    UIBezierPath * path = [_magicCurve generateUIBezierPath];
+
+    // 3.  if the MagicCurve is closed, draw the path fill
+    if (_magicCurve.isClosed) [path fill];
+
+    // 4. draw the path stroke
+    [path stroke];
+}
+</code></pre>
+
+<p>It is also easy to render the control points, if desired:</p>
+
+<pre><code>     // 5. draw the control points
+     NSUInteger numControlPoints = _magicCurve.numControlPoints;
+     CGContextRef context = UIGraphicsGetCurrentContext();
+
+     CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+     for (NSUInteger i = 0; i &lt; numControlPoints; i++)
+     {
+         CGPoint controlPoint = [_magicCurve controlPointAt: i];
+         CGContextFillEllipseInRect(context, CGRectMake(controlPoint.x-5, controlPoint.y-5, 10, 10));
+     }
+</code></pre>
+
+<p>  Magic Curves are also easy to manipulate from UI code; here&rsquo;s a simple example using touchesBegan, touchesMoved, and touchesEnded:</p>
+
+<pre><code> - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+ {
+     UITouch * touch = [touches anyObject];
+     CGPoint location = [touch locationInView: self];
+     CGFloat radius = MAX(10, touch.majorRadius); // 10 is our control point size that we rendered
+     NSUInteger index = 0;
+
+     _currentControlPointIndex = AdobeLabsMagicCurveNullIndex;
+
+     if ([_magicCurve findClosestControlPoint: location withRadius: radius andControlPointIndexToSet: &amp;index])
+     {
+        _currentControlPointIndex = index;
+        [_magicCurve setControlPoint: _currentControlPointIndex withPoint: location];
+        [self setNeedsDisplay];
+     }
+ }
+
+ - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+ {
+     if (_currentControlPointIndex != AdobeLabsMagicCurveNullIndex)
+     {
+         [_magicCurve setControlPoint: _currentControlPointIndex withPoint: [[touches anyObject] locationInView: self]];
+         [self setNeedsDisplay];
+     }
+ }
+
+ -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+ {
+     if (_currentControlPointIndex != AdobeLabsMagicCurveNullIndex)
+     {
+         [_magicCurve setControlPoint: _currentControlPointIndex withPoint: [[touches anyObject] locationInView: self]];
+         _currentControlPointIndex = AdobeLabsMagicCurveNullIndex;
+         [self setNeedsDisplay];
+     }
+ }
+</code></pre>
+
+<p>That&rsquo;s how easy it is!  You can also split curves, insert new control points along the curve, and convert UIBezierPaths into Magic Curves.  For further details see below.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Properties" name="task_Properties"></a>
+						<h3 class="subsubtitle task-title">Properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isClosed">&nbsp;&nbsp;isClosed</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isOpen">&nbsp;&nbsp;isOpen</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numControlPoints">&nbsp;&nbsp;numControlPoints</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Instance Methods" name="task_Instance Methods"></a>
+						<h3 class="subsubtitle task-title">Instance Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addControlPoint:isCorner:">&ndash;&nbsp;addControlPoint:isCorner:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/canInsertControlPoint:withRadius:">&ndash;&nbsp;canInsertControlPoint:withRadius:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clear">&ndash;&nbsp;clear</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controlPointAt:">&ndash;&nbsp;controlPointAt:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/findClosestControlPoint:withRadius:andControlPointIndexToSet:">&ndash;&nbsp;findClosestControlPoint:withRadius:andControlPointIndexToSet:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/findClosestPositionOnCurve:withRadius:andClosestPositionToSet:">&ndash;&nbsp;findClosestPositionOnCurve:withRadius:andClosestPositionToSet:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/generateUIBezierPath">&ndash;&nbsp;generateUIBezierPath</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithMagicCurve:">&ndash;&nbsp;initWithMagicCurve:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithUIBezierPath:">&ndash;&nbsp;initWithUIBezierPath:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/insertControlPoint:withRadius:andControlPointIndexToSet:">&ndash;&nbsp;insertControlPoint:withRadius:andControlPointIndexToSet:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isCorner:">&ndash;&nbsp;isCorner:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeControlPoint:">&ndash;&nbsp;removeControlPoint:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scale:">&ndash;&nbsp;scale:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setControlPoint:isCorner:">&ndash;&nbsp;setControlPoint:isCorner:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setControlPoint:withPosition:">&ndash;&nbsp;setControlPoint:withPosition:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setControlPoint:withPosition:andIsCorner:">&ndash;&nbsp;setControlPoint:withPosition:andIsCorner:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/splitClosedCurve:">&ndash;&nbsp;splitClosedCurve:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/splitOpenCurve:">&ndash;&nbsp;splitOpenCurve:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toggleCorner:">&ndash;&nbsp;toggleCorner:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/translate:">&ndash;&nbsp;translate:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/isClosed" title="isClosed"></a>
+	<h3 class="subsubtitle method-title">isClosed</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>controls whether or not the path represents a closed shape (YES) or an open curve (NO)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL isClosed</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>controls whether or not the path represents a closed shape (YES) or an open curve (NO)</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isOpen" title="isOpen"></a>
+	<h3 class="subsubtitle method-title">isOpen</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>controls whether or not the path represents an open curve (YES) or a closed shape (NO)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL isOpen</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>controls whether or not the path represents an open curve (YES) or a closed shape (NO)</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numControlPoints" title="numControlPoints"></a>
+	<h3 class="subsubtitle method-title">numControlPoints</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>gives the number of control points</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSUInteger numControlPoints</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>gives the number of control points</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addControlPoint:isCorner:" title="addControlPoint:isCorner:"></a>
+	<h3 class="subsubtitle method-title">addControlPoint:isCorner:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add a control point to the curve given a position.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)addControlPoint:(CGPoint)<em>position</em> isCorner:(BOOL)<em>isCorner</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the position of the control point as a CGPoint.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the index of the control point that was added</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Add a control point to the curve given a position.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/canInsertControlPoint:withRadius:" title="canInsertControlPoint:withRadius:"></a>
+	<h3 class="subsubtitle method-title">canInsertControlPoint:withRadius:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>determines whether or not a control point can be inserted on the curve near a position</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)canInsertControlPoint:(CGPoint)<em>position</em> withRadius:(CGFloat)<em>radius</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the position near which to find insert a control point on the curve</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>radius</em></dt>
+			<dd><p>the radius around the input position that the curve must intersect</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if a position on the curve was found within the radius around the input position and a control point can be inserted there, NO otherwise</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>determines whether or not a control point can be inserted on the curve near a position</p>
+
+<p>This function provides a way to test whether or not insertControlPoint would succeed without inserting a control point.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clear" title="clear"></a>
+	<h3 class="subsubtitle method-title">clear</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Clear all of the control points from the magic curve.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)clear</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Clear all of the control points from the magic curve.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controlPointAt:" title="controlPointAt:"></a>
+	<h3 class="subsubtitle method-title">controlPointAt:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the position of a control point.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGPoint)controlPointAt:(NSUInteger)<em>nControlPointIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the position of the control point or (0, 0) for an invalid controlPointIndex</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the position of a control point.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/findClosestControlPoint:withRadius:andControlPointIndexToSet:" title="findClosestControlPoint:withRadius:andControlPointIndexToSet:"></a>
+	<h3 class="subsubtitle method-title">findClosestControlPoint:withRadius:andControlPointIndexToSet:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>find the closest control point near a position</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)findClosestControlPoint:(CGPoint)<em>position</em> withRadius:(CGFloat)<em>radius</em> andControlPointIndexToSet:(NSUInteger *)<em>pControlPointIndexToSet</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the position to find the control point near</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>radius</em></dt>
+			<dd><p>the radius around the position that the control point must intersect</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>pControlPointIndexToSet</em></dt>
+			<dd><p>a pointer to the NSUInteger variable to receive the found control point index</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if a control point was found within the radius around the position, NO if a control point was not found</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>find the closest control point near a position</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/findClosestPositionOnCurve:withRadius:andClosestPositionToSet:" title="findClosestPositionOnCurve:withRadius:andClosestPositionToSet:"></a>
+	<h3 class="subsubtitle method-title">findClosestPositionOnCurve:withRadius:andClosestPositionToSet:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>find the closest control position on a curve near a position</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)findClosestPositionOnCurve:(CGPoint)<em>position</em> withRadius:(CGFloat)<em>radius</em> andClosestPositionToSet:(CGPoint *)<em>pPositionToSet</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the position near which to find a position on the curve</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>radius</em></dt>
+			<dd><p>the radius around the input position that the curve must intersect</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>pPositionToSet</em></dt>
+			<dd><p>a pointer to the CGPoint variable to receive the found position on the curve</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if a position on the curve was found within the radius around the input position, NO if a position was not found</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>find the closest control position on a curve near a position</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/generateUIBezierPath" title="generateUIBezierPath"></a>
+	<h3 class="subsubtitle method-title">generateUIBezierPath</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>generates a UIBezierPath from the Magic Curve</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIBezierPath *)generateUIBezierPath</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the UIBezierPath for the curve or nil if a UIBezierPath could not be generated</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>generates a UIBezierPath from the Magic Curve</p><div class="note"><p><strong>Note:</strong> If the user is on the network and not logged into Creative Cloud, generateUIBezierPath will return nil.
+It is the responsibility of the caller to ensure, if the user is on the network, that the user is authenticated
+with Creative Cloud prior to calling this function.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="subsubtitle method-title">init</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize the magic curve.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)init</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize the magic curve.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithMagicCurve:" title="initWithMagicCurve:"></a>
+	<h3 class="subsubtitle method-title">initWithMagicCurve:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize the magic curve by copying an existing magicCurve.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithMagicCurve:(AdobeLabsMagicCurve *)<em>magicCurve</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize the magic curve by copying an existing magicCurve.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithUIBezierPath:" title="initWithUIBezierPath:"></a>
+	<h3 class="subsubtitle method-title">initWithUIBezierPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize the magic curve with a UIBezierPath</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithUIBezierPath:(UIBezierPath *)<em>path</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize the magic curve with a UIBezierPath</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/insertControlPoint:withRadius:andControlPointIndexToSet:" title="insertControlPoint:withRadius:andControlPointIndexToSet:"></a>
+	<h3 class="subsubtitle method-title">insertControlPoint:withRadius:andControlPointIndexToSet:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>inserts a control point on the curve near a position</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)insertControlPoint:(CGPoint)<em>position</em> withRadius:(CGFloat)<em>radius</em> andControlPointIndexToSet:(NSUInteger *)<em>pControlPointIndexToSet</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the position near which to insert a control point on the curve</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>radius</em></dt>
+			<dd><p>the radius around the input position that the curve must intersect</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>pControlPointIndexToSet</em></dt>
+			<dd><p>a pointer to the NSUInteger variable to receive the inserted control point index</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if a control point was inserted, NO otherwise</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>inserts a control point on the curve near a position</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isCorner:" title="isCorner:"></a>
+	<h3 class="subsubtitle method-title">isCorner:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether or not a control point is a corner</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)isCorner:(NSUInteger)<em>nControlPointIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if the control point is a corner, no if it isn&rsquo;t or if controlPointIndex is invalid</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns whether or not a control point is a corner</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeControlPoint:" title="removeControlPoint:"></a>
+	<h3 class="subsubtitle method-title">removeControlPoint:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove a control point from a curve.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)removeControlPoint:(NSUInteger)<em>nControlPointIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>controlPointIndex</em></dt>
+			<dd><p>the index of the control point to return</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>AdobeLabsMagicCurveNullIndex if no more control points exist after the removal, controlPointIndex-1 if the last control point was removed, otherwise controlPointIndex</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Remove a control point from a curve.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/scale:" title="scale:"></a>
+	<h3 class="subsubtitle method-title">scale:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>scales the size of the Magic Curve by a factor</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)scale:(CGFloat)<em>scaleFactor</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>scaleFactor</em></dt>
+			<dd><p>the scale factor</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>scales the size of the Magic Curve by a factor</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setControlPoint:isCorner:" title="setControlPoint:isCorner:"></a>
+	<h3 class="subsubtitle method-title">setControlPoint:isCorner:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>sets whether or not a control point is a corner</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setControlPoint:(NSUInteger)<em>nControlPointIndex</em> isCorner:(BOOL)<em>isCorner</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>isCorner</em></dt>
+			<dd><p>whether or not the control point is a corner</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>sets whether or not a control point is a corner</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setControlPoint:withPosition:" title="setControlPoint:withPosition:"></a>
+	<h3 class="subsubtitle method-title">setControlPoint:withPosition:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>sets a control point&rsquo;s position</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setControlPoint:(NSUInteger)<em>nControlPointIndex</em> withPosition:(CGPoint)<em>position</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the new position of the control point</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>sets a control point&rsquo;s position</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setControlPoint:withPosition:andIsCorner:" title="setControlPoint:withPosition:andIsCorner:"></a>
+	<h3 class="subsubtitle method-title">setControlPoint:withPosition:andIsCorner:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>sets a control point&rsquo;s position and whether or not it is a corner</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setControlPoint:(NSUInteger)<em>nControlPointIndex</em> withPosition:(CGPoint)<em>position</em> andIsCorner:(BOOL)<em>isCorner</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>position</em></dt>
+			<dd><p>the new position of the control point</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>andIsCorner</em></dt>
+			<dd><p>whether or not the control point is a corner</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>sets a control point&rsquo;s position and whether or not it is a corner</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/splitClosedCurve:" title="splitClosedCurve:"></a>
+	<h3 class="subsubtitle method-title">splitClosedCurve:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>splits a closed curve to an open curve at a control point</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)splitClosedCurve:(NSUInteger)<em>nControlPointIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point where to split the curve</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>splits a closed curve to an open curve at a control point</p><div class="note"><p><strong>Note:</strong> This function only operates on closed curves and will assert if the curve is not closed.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/splitOpenCurve:" title="splitOpenCurve:"></a>
+	<h3 class="subsubtitle method-title">splitOpenCurve:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>splits an open curve into two open curves at a control point</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (AdobeLabsMagicCurve *)splitOpenCurve:(NSUInteger)<em>nControlPointIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point where to split the curve</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the new curve generated from the split at the control point or nil if invalid parameters are passed in</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>splits an open curve into two open curves at a control point</p><div class="note"><p><strong>Note:</strong> This function only operates on open curves and will assert if the curve is not open.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toggleCorner:" title="toggleCorner:"></a>
+	<h3 class="subsubtitle method-title">toggleCorner:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>toggles whether or not a control point is a corner</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)toggleCorner:(NSUInteger)<em>nControlPointIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nControlPointIndex</em></dt>
+			<dd><p>the index of the control point</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>toggles whether or not a control point is a corner</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/translate:" title="translate:"></a>
+	<h3 class="subsubtitle method-title">translate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>scales the size of the Magic Curve by a factor</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)translate:(CGPoint)<em>translation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>scaleFactor</em></dt>
+			<dd><p>the scale factor</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>scales the size of the Magic Curve by a factor</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicCurve.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2016 Adobe Systems Incorporated. All rights reserved. (Last updated: 2016-01-19)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

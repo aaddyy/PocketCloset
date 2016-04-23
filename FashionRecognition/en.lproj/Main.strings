@@ -1,0 +1,12 @@
+
+/* Class = "UITabBarItem"; title = "Coordinate"; ObjectID = "1MD-VO-Tpv"; */
+"1MD-VO-Tpv.title" = "Coordinate";
+
+/* Class = "UITabBarItem"; title = "MyCloset"; ObjectID = "9hS-ti-1Mj"; */
+"9hS-ti-1Mj.title" = "MyCloset";
+
+/* Class = "UINavigationItem"; title = "ユーザー登録 / ログイン"; ObjectID = "Dg0-Wu-75n"; */
+"Dg0-Wu-75n.title" = "User Register / Login";
+
+/* Class = "UITabBarItem"; title = "Registration"; ObjectID = "keY-50-QVb"; */
+"keY-50-QVb.title" = "Registration";

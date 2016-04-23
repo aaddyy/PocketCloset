@@ -1,0 +1,566 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>AdobeLabsMagicMusicRetargeting Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">AdobeCreativeSDKLabs.framework </a></h1>
+				<a id="developerHome" href="../index.html">Adobe Systems Incorporated</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">AdobeLabsMagicMusicRetargeting Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/analyseSongAssetCompletionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- analyseSongAssetCompletionBlock:</option>
+	
+	<option value="//api/name/initWithAsset:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAsset:</option>
+	
+	<option value="//api/name/retargetToLength:toURL:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- retargetToLength:toURL:completionBlock:</option>
+	
+	<option value="//api/name/retargetToLength:toURL:withChangePoints:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- retargetToLength:toURL:withChangePoints:completionBlock:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Instance Methods">Instance Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/analyseSongAssetCompletionBlock:">analyseSongAssetCompletionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAsset:">initWithAsset:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/retargetToLength:toURL:completionBlock:">retargetToLength:toURL:completionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/retargetToLength:toURL:withChangePoints:completionBlock:">retargetToLength:toURL:withChangePoints:completionBlock:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="AdobeLabsMagicMusicRetargeting Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">AdobeLabsMagicMusicRetargeting Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">AdobeLabsMagicMusicRetargeting.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The <code>AdobeLabsMagicMusicRetargeting</code> class magically transforms any song at the click of a button to the duration you want.
+Using beat detection, content analysis, and source separation, <code>AdobeLabsMagicMusicRetargeting</code> can recompose your clips
+to create amazing remixes in seconds.</p>
+
+<p>To use this class, inizialize it with an AVAsset:
+AdobeLabsMagicMusicRetargeting* retarget = [[AdobeLabsMagicMusicRetargeting alloc] initWithAsset:inAsset];</p>
+
+<p>Before remixing your track, you need to analyse the song. This needs to be done only once for each track:
+[retarget <a href="#//api/name/analyseSongAssetCompletionBlock:">analyseSongAssetCompletionBlock:</a>(void(^)(NSError *error))completionBlock
+{
+// completionBlock is called on the main thread
+if (nil == error)
+{
+// success! the was analyzed!
+}
+}];</p>
+
+<p>Then you can remix your song to any length calling the retargetToLength function:</p>
+
+<p>[retarget retargetToLength:inLength toURL:inURL completionBlock:^(AVAsset <em>result, NSError </em>error)
+{
+// completionBlock is called on the main thread
+if (nil == error)
+{
+// success! the new asset was created and is in the local variable &lsquo;asset&rsquo;
+}
+}];</p>
+
+<p><b>Note:</b> If there is an error, the error parameter of the completion block will be set.<br>Errors specific to <code>AdobeLabsMagicMusicRetargeting</code> will have error.domain set to:<br><code>extern NSString * const AdobeLabsMagicMusicRetargetingErrorDomain</code><br> and will have error code set to one of the enumeration values in <a href="../Constants/AdobeLabsMagicMusicRetargetingErrorCode.html">AdobeLabsMagicMusicRetargetingErrorCode</a>.</p>
+
+<p>Using <fakeout>AdobeLabsMagicMusicRetargeting</fakeout> is easy!  There is a function that allows for specification of desired change points in the remix too:
+retargetToLength:(NSTimeInterval)inLength  toURL:(NSURL <em>) inURL withChangePoints:(NSMutableArray </em>) inTargetChangePoints</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Instance Methods" name="task_Instance Methods"></a>
+						
+<h3 class="subsubtitle task-title">Instance Methods</h3>
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithAsset:">&ndash;&nbsp;initWithAsset:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/analyseSongAssetCompletionBlock:">&ndash;&nbsp;analyseSongAssetCompletionBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/retargetToLength:toURL:completionBlock:">&ndash;&nbsp;retargetToLength:toURL:completionBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/retargetToLength:toURL:withChangePoints:completionBlock:">&ndash;&nbsp;retargetToLength:toURL:withChangePoints:completionBlock:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/analyseSongAssetCompletionBlock:" title="analyseSongAssetCompletionBlock:"></a>
+	<h3 class="subsubtitle method-title">analyseSongAssetCompletionBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>analyse the AVAsset of the class instance (@see initWithAsset). This methods has to be called before calling <fakeout>analyseSongAssetCompletionBlock</fakeout>.
+*
+* @param completionBlock   the completion block to call with error status and the new AVAsset upon completion
+* @note                    The NSError passed in to the completion block will be nil on success and non-nil on error.<br>The AVAsset passed in
+to the completion block will be non-nil on success and nil on error.<br>The completion block will be called on the main thread.
+The error <code>AdobeLabsMagicAudioErrorNotAuthenticated</code> will be returned if the user is on  the network but not logged into Creative Cloud.
+It is the responsibility of the caller to ensure the user is logged into Creative Cloud prior to calling this function.
+*</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)analyseSongAssetCompletionBlock:(void ( ^ ) ( NSError *error ))<em>completionBlock</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>analyse the AVAsset of the class instance (@see initWithAsset). This methods has to be called before calling <fakeout>analyseSongAssetCompletionBlock</fakeout>.
+*
+* @param completionBlock   the completion block to call with error status and the new AVAsset upon completion
+* @note                    The NSError passed in to the completion block will be nil on success and non-nil on error.<br>The AVAsset passed in
+to the completion block will be non-nil on success and nil on error.<br>The completion block will be called on the main thread.
+The error <code>AdobeLabsMagicAudioErrorNotAuthenticated</code> will be returned if the user is on  the network but not logged into Creative Cloud.
+It is the responsibility of the caller to ensure the user is logged into Creative Cloud prior to calling this function.
+*</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicMusicRetargeting.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithAsset:" title="initWithAsset:"></a>
+	<h3 class="subsubtitle method-title">initWithAsset:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>initialize AdobeLabsMagicMusicRetargeting  with an audio AVAsset</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithAsset:(AVAsset *)<em>inAsset</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>inAsset</em></dt>
+			<dd><p>the AVAsset to to inizialize the class with. This asset must reside on the device (i.e. only file URL&rsquo;s are accepted)</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>initialize AdobeLabsMagicMusicRetargeting  with an audio AVAsset</p>
+
+<p>In the case of multiple added target AVAssets, the <a href="../Classes/AdobeLabsMagicAudioSpeechMatcher.html">AdobeLabsMagicAudioSpeechMatcher</a> will match to the average of the target AVAssets.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicMusicRetargeting.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/retargetToLength:toURL:completionBlock:" title="retargetToLength:toURL:completionBlock:"></a>
+	<h3 class="subsubtitle method-title">retargetToLength:toURL:completionBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>retarget the AVAsset of the class instance (@see initWithAsset) with a new duration. @note analyseSongAssetCompletionBlock
+*  must be called before calling this method.
+*
+* @param sourceAudio       target length in seconds.
+* @param inURL             location to save the wav file of the retargeted audio file.
+* @param completionBlock   the completion block to call with error status and the new AVAsset upon completion
+* @note                    The NSError passed in to the completion block will be nil on success and non-nil on error.<br>The AVAsset passed in
+to the completion block will be non-nil on success and nil on error.<br>The completion block will be called on the main thread.
+The error <code>AdobeLabsMagicAudioErrorNotAuthenticated</code> will be returned if the user is on  the network but not logged into Creative Cloud.
+It is the responsibility of the caller to ensure the user is logged into Creative Cloud prior to calling this function.
+*</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)retargetToLength:(NSTimeInterval)<em>inLength</em> toURL:(NSURL *)<em>inURL</em> completionBlock:(void ( ^ ) ( AVAsset *result , NSError *error ))<em>completionBlock</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>retarget the AVAsset of the class instance (@see initWithAsset) with a new duration. @note analyseSongAssetCompletionBlock
+*  must be called before calling this method.
+*
+* @param sourceAudio       target length in seconds.
+* @param inURL             location to save the wav file of the retargeted audio file.
+* @param completionBlock   the completion block to call with error status and the new AVAsset upon completion
+* @note                    The NSError passed in to the completion block will be nil on success and non-nil on error.<br>The AVAsset passed in
+to the completion block will be non-nil on success and nil on error.<br>The completion block will be called on the main thread.
+The error <code>AdobeLabsMagicAudioErrorNotAuthenticated</code> will be returned if the user is on  the network but not logged into Creative Cloud.
+It is the responsibility of the caller to ensure the user is logged into Creative Cloud prior to calling this function.
+*</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicMusicRetargeting.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/retargetToLength:toURL:withChangePoints:completionBlock:" title="retargetToLength:toURL:withChangePoints:completionBlock:"></a>
+	<h3 class="subsubtitle method-title">retargetToLength:toURL:withChangePoints:completionBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>retarget the AVAsset of the class instance (@see initWithAsset) with a new duration with changes at novelty points. @note analyseSongAssetCompletionBlock
+*  must be called before calling this method.
+*
+* @param sourceAudio                target length in seconds.
+* @param inURL                      location to save the wav file of the retargeted audio file.
+* @param inTargetChangePoints       points in seconds where novelty (emotional change) must happen in the target song.
+* @param completionBlock            the completion block to call with error status and the new AVAsset upon completion
+* @note                             The NSError passed in to the completion block will be nil on success and non-nil on error.<br>The AVAsset passed in
+to the completion block will be non-nil on success and nil on error.<br>The completion block will be called on the main thread.
+The error <code>AdobeLabsMagicAudioErrorNotAuthenticated</code> will be returned if the user is on  the network but not logged into Creative Cloud.
+It is the responsibility of the caller to ensure the user is logged into Creative Cloud prior to calling this function.
+*  @see retargetToLength
+*</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)retargetToLength:(NSTimeInterval)<em>inLength</em> toURL:(NSURL *)<em>inURL</em> withChangePoints:(NSMutableArray *)<em>inTargetChangePoints</em> completionBlock:(void ( ^ ) ( AVAsset *result , NSError *error ))<em>completionBlock</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>retarget the AVAsset of the class instance (@see initWithAsset) with a new duration with changes at novelty points. @note analyseSongAssetCompletionBlock
+*  must be called before calling this method.
+*
+* @param sourceAudio                target length in seconds.
+* @param inURL                      location to save the wav file of the retargeted audio file.
+* @param inTargetChangePoints       points in seconds where novelty (emotional change) must happen in the target song.
+* @param completionBlock            the completion block to call with error status and the new AVAsset upon completion
+* @note                             The NSError passed in to the completion block will be nil on success and non-nil on error.<br>The AVAsset passed in
+to the completion block will be non-nil on success and nil on error.<br>The completion block will be called on the main thread.
+The error <code>AdobeLabsMagicAudioErrorNotAuthenticated</code> will be returned if the user is on  the network but not logged into Creative Cloud.
+It is the responsibility of the caller to ensure the user is logged into Creative Cloud prior to calling this function.
+*  @see retargetToLength
+*</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AdobeLabsMagicMusicRetargeting.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2016 Adobe Systems Incorporated. All rights reserved. (Last updated: 2016-01-19)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
