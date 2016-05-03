@@ -1,6 +1,7 @@
 import UIKit
 import Parse
 import Foundation
+import Onboard
 
 class EditorViewController: imageEditorViewController{
     var alertTitle:String!
@@ -19,6 +20,8 @@ class EditorViewController: imageEditorViewController{
     var flag = forReEditFlag
     var LangFlag = TOPS
     var GuideView:UIView!
+    var base:UIView!
+    var vc:OnboardingViewController!
     
     var SELECT_ITEM_AREA = NSLocalizedString("SELECT_ITEM_AREA", comment:"" )
     var SHOW_EDITED_ITEM = NSLocalizedString("SHOW_EDITED_ITEM", comment:"" )
@@ -35,7 +38,11 @@ class EditorViewController: imageEditorViewController{
     var ITEMTOUCH = NSLocalizedString("ITEMTOUCH", comment:"" )
     var ERASER = NSLocalizedString("ERASER", comment:"" )
     var UPDATE = NSLocalizedString("UPDATE", comment:"" )
-    var UPDATE_SUCCESS = NSLocalizedString("UPDATE_SUCCESS", comment:"" );
+    var UPDATE_SUCCESS = NSLocalizedString("UPDATE_SUCCESS", comment:"" )
+    var LOGOUT = NSLocalizedString("LOGOUT", comment:"" )
+    var HELP =  NSLocalizedString("HELP", comment:"" )
+    var SKIP =  NSLocalizedString("SKIP", comment:"" )
+
     
 //setObject系
     //setButton
@@ -45,21 +52,6 @@ class EditorViewController: imageEditorViewController{
     var imageEdgeLeft:CGFloat! = 30
     var titleEdgeTop:CGFloat! = 45
     var titleEdgeLeft:CGFloat! = -25
-
-    func Guide(){
-        if TOPS == "Tops"{
-            Expression(GuideView, guideImage: "guide3en.png")
-        }else{
-            Expression(GuideView, guideImage: "guide3.png")
-        }
-        guideButton.addTarget(self, action: "removeGuide", forControlEvents: .TouchUpInside)
-    }
-    func removeGuide(){
-        top.removeFromSuperview()
-        middle.removeFromSuperview()
-        backGround.removeFromSuperview()
-        guideButton.removeFromSuperview()
-    }
     
     func setButton(){
         let button = UIButton()
@@ -70,10 +62,26 @@ class EditorViewController: imageEditorViewController{
         button.setTitleColor(imageColor, forState: .Normal)
         button.titleLabel!.font = UIFont(name: "HiraKakuProN-W3", size: 12)
         button.titleLabel?.numberOfLines = 2
+        
         let backImage = UIImage(named: imageName)!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         button.setImage(backImage, forState: .Normal)
         button.imageEdgeInsets = UIEdgeInsetsMake(imageEdgeTop, imageEdgeLeft, 0, 0);
         button.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeTop, titleEdgeLeft, 0, 0);
+        
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+        button.tintColor = imageColor
+        button.tag = tag
+        iconButtons.append(button)
+    }
+    func setButtonSkip(){
+        let button = UIButton()
+        button.frame = CGRectMake(0,0,120,60)
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.masksToBounds = true
+        button.setTitle(text, forState: .Normal)
+        button.setTitleColor(imageColor, forState: .Normal)
+        button.titleLabel!.font = UIFont(name: "HiraKakuProN-W3", size: 12)
+        button.titleLabel?.numberOfLines = 2
         button.layer.borderColor = UIColor.whiteColor().CGColor
         button.tintColor = imageColor
         button.tag = tag
@@ -171,6 +179,82 @@ class EditorViewController: imageEditorViewController{
         tempLabel.layer.position = CGPointMake(analyzingView.bounds.size.width/2, analyzingView.bounds.size.height*(3/5))
         analyzingView.addSubview(tempLabel)
     }
+    //Guide用
+    func localGuide(){
+        base = UIView()
+        base.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
+        base.backgroundColor = UIColor.whiteColor()
+        if TOPS == "Tops"{
+            Guide(GUIDE07, body1: GUIDE08, body2: GUIDE09, image1: "guide3-1en.png", image2: "guide3-2.png", view: base)
+        }else{
+            Guide(GUIDE07, body1: GUIDE08, body2: GUIDE09, image1: "guide3-1ja.png", image2: "guide3-2.png", view: base)
+        }
+        base.addSubview(vcc.view)
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+    }
+    var vcc:OnboardingViewController!
+    func Guide(title:String,body1:String,body2:String,image1:String,image2:String,view:UIView){
+        let content1 = OnboardingContentViewController(
+            title: title,
+            body: body1,
+            image: UIImage(named: image1),
+            buttonText: "",
+            action: nil
+        )
+        content1.bodyFontSize = 16
+        let content2 = OnboardingContentViewController(
+            title: title,
+            body: body2,
+            image: UIImage(named: image2),
+            buttonText: "",
+            action: nil
+        )
+        content2.bodyFontSize = 16
+        let contentArray = [content1, content2]
+        for (var i=0; i<2; i++){
+            contentArray[i].iconHeight = (view.bounds.height)*0.5
+            contentArray[i].iconWidth = (view.bounds.width)
+            contentArray[i].titleFontSize = 18
+            contentArray[i].bodyFontSize = 15
+            contentArray[i].topPadding =  0
+            contentArray[i].underIconPadding = 0
+            contentArray[i].underTitlePadding = 30
+            contentArray[i].bottomPadding = 0
+            contentArray[i].titleTextColor = imageColor
+            contentArray[i].bodyTextColor = UIColor.blackColor()
+            contentArray[i].buttonTextColor = imageColor
+        }
+        vcc = OnboardingViewController(
+            backgroundImage: nil,
+            contents: [content1, content2]
+        )
+        vcc.allowSkipping = true
+        vcc.shouldMaskBackground = false
+        vcc.view.backgroundColor = UIColor.whiteColor()
+        vcc.view.contentMode = UIViewContentMode.ScaleAspectFit
+        vcc.view.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height-60)
+        vcc.skipButton.setTitle("Skip", forState: .Normal)
+        vcc.skipButton.setTitleColor(imageColor, forState: .Normal)
+        vcc.skipButton.frame = CGRectMake(view.bounds.width-80 ,view.bounds.height-40, 40, 40)
+        vcc.pageControl.pageIndicatorTintColor = UIColor.grayColor()
+        vcc.pageControl.currentPageIndicatorTintColor = imageColor
+        vcc.pageControl.frame = CGRectMake(0, view.bounds.height-40, view.bounds.width, 40)
+    }
+    
+    //skipHandler用のaleart
+    func skipAlert(){
+        UIAlertController.appearance().tintColor = imageColor
+        alertController = UIAlertController(title: "", message: SKIP_ALERT, preferredStyle: .Alert)
+        let action = UIAlertAction(title: SKIP, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+            self.base.removeFromSuperview()
+        })
+        let cancelAction = UIAlertAction(title: CANCEL, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+        })
+        alertController.addAction(action)
+        alertController.addAction(cancelAction)
+    }
+    //
+    
     
     //画面遷移系
     func execution(){
@@ -185,7 +269,6 @@ class EditorViewController: imageEditorViewController{
     //alert系
     func alert() {
         UIAlertController.appearance().tintColor = imageColor
-//        alertTitle = REGISTRATION_SUCCESS
         alertController = UIAlertController(title: alertTitle, message: "", preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(action)

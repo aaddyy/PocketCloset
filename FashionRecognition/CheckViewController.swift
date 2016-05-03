@@ -7,6 +7,7 @@ class CheckViewController: UIViewController {
     
     var Flag = ""
     var Register = RegistrarionViewController()
+    var base:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +18,6 @@ class CheckViewController: UIViewController {
         setCheckTableView()
         forCheckView = ""
     }
-    
     
     //TopView生成
     func setTopView(){
@@ -133,6 +133,24 @@ class CheckViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
 
+    //skipHandler用のaleart
+    func skipAlert(){
+        UIAlertController.appearance().tintColor = imageColor
+        let alertController = UIAlertController(title: "", message: SKIP_ALERT, preferredStyle: .Alert)
+        let action = UIAlertAction(title: SKIP, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+            self.base.removeFromSuperview()
+            forReEditFlag = ""
+            RegistrarionViewFlag = "Reload"
+            self.performSegueWithIdentifier("ShowToEditor", sender: nil)
+        })
+        let cancelAction = UIAlertAction(title: CANCEL, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+        })
+        alertController.addAction(action)
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    //
+    
     //縦画面固定
     override func shouldAutorotate() -> Bool{
         return false

@@ -16,6 +16,7 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentPointY:CGFloat!
     var temp = 0
     var localFlag = 0
+    var base:UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +32,6 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
             setTopView()
             setScrollView()
             tapIconButton(iconButtons[0])
-//            Guide(self.view)
-//            self.view.addSubview(vc.view)
-
-//            window?.rootViewController = UITabBarController
-//            presentViewController(vc, animated: false, completion: nil)
-//            if TOPS == "Tops"{
-//            Expression(self.view, guideImage: "guide1en.png")
-//            }else{
-//            Expression(self.view, guideImage: "guide1.png")
-//            }
-//            guideButton.addTarget(self, action: "removeGuide", forControlEvents: .TouchUpInside)
         }
         tabBarSet = ""
         if TotalCodeFlag == 1{
@@ -78,8 +68,9 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
         setButton(60, frameY: Y, layerX: self.view.frame.width*(4/7), layerY: Y*(4/3), text: BAG, fontSize: 8, imageName: "バッグ.png", imageEdgeTop: -10, imageEdgeLeft: 5, titleEdgeTop: 30, titleEdgeLeft: -45, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 4, view: self.view)
         setButton(60, frameY: Y, layerX: self.view.frame.width*(5/7), layerY: Y*(4/3), text: MISCELLANEOUS_GOODS, fontSize: 8, imageName: "雑貨.png", imageEdgeTop: -10, imageEdgeLeft: 12, titleEdgeTop: 30, titleEdgeLeft: -30, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 5, view: self.view)
         setButton(60, frameY: Y, layerX: self.view.frame.width*(6/7), layerY: Y*(4/3), text: TOTALCODE, fontSize: 8, imageName: "total.png", imageEdgeTop: -10, imageEdgeLeft: 12, titleEdgeTop: 30, titleEdgeLeft: -30, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 6, view: self.view)
+        setButton(60, frameY: Y, layerX: self.view.frame.width*(8/9), layerY: Y/2, text: HELP, fontSize: 8, imageName: "help.png", imageEdgeTop: 0, imageEdgeLeft: 2, titleEdgeTop: 40, titleEdgeLeft: -33, cornerRadius: 0, target: self, action: "localGuide", tag: 100, view: self.view)
             if TotalCodeFlag == 0{
-        setButton(60, frameY: Y, layerX: self.view.frame.width*(6/7), layerY: Y/2, text: LOGOUT, fontSize: 8, imageName: "logout.png", imageEdgeTop: 0, imageEdgeLeft: 5, titleEdgeTop: 40, titleEdgeLeft: -50, cornerRadius: 0, target: self, action: "logout", tag: 100, view: self.view)
+        setButton(60, frameY: Y, layerX: self.view.frame.width*(1/9), layerY: Y/2, text: LOGOUT, fontSize: 8, imageName: "logout.png", imageEdgeTop: 0, imageEdgeLeft: 2, titleEdgeTop: 40, titleEdgeLeft: -33, cornerRadius: 0, target: self, action: "logout", tag: 100, view: self.view)
             }
         }else{
         setButton(50, frameY: Y, layerX: self.view.frame.width*(1/7), layerY: Y*(4/3), text: TOPS, fontSize: 8, imageName: "トップス.png", imageEdgeTop: -10, imageEdgeLeft: 0, titleEdgeTop: 30, titleEdgeLeft: -35, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 1, view: self.view)
@@ -88,15 +79,19 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
         setButton(50, frameY: Y, layerX: self.view.frame.width*(4/7), layerY: Y*(4/3), text: BAG, fontSize: 8, imageName: "バッグ.png", imageEdgeTop: -10, imageEdgeLeft: 0, titleEdgeTop: 30, titleEdgeLeft: -40, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 4, view: self.view)
         setButton(50, frameY: Y, layerX: self.view.frame.width*(5/7), layerY: Y*(4/3), text: MISCELLANEOUS_GOODS, fontSize: 8, imageName: "雑貨.png", imageEdgeTop: -10, imageEdgeLeft: 0, titleEdgeTop: 30, titleEdgeLeft: -45, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 5, view: self.view)
         setButton(50, frameY: Y, layerX: self.view.frame.width*(6/7), layerY: Y*(4/3), text: TOTALCODE, fontSize: 8, imageName: "total.png", imageEdgeTop: -10, imageEdgeLeft: 0, titleEdgeTop: 30, titleEdgeLeft: -40, cornerRadius: 0, target: self, action: "tapIconButton:", tag: 6, view: self.view)
+        setButton(50, frameY: Y, layerX: self.view.frame.width*(8/9), layerY: Y/2, text: HELP, fontSize: 8, imageName: "help.png", imageEdgeTop: 0, imageEdgeLeft: 2, titleEdgeTop: 40, titleEdgeLeft: -33, cornerRadius: 0, target: self, action: "localGuide", tag: 100, view: self.view)
             if TotalCodeFlag == 0{
-        setButton(50, frameY: Y, layerX: self.view.frame.width*(6/7), layerY: Y/2, text: LOGOUT, fontSize: 8, imageName: "logout.png", imageEdgeTop: 0, imageEdgeLeft: 0, titleEdgeTop: 40, titleEdgeLeft: -40, cornerRadius: 0, target: self, action: "logout", tag: 100, view: self.view)
+        setButton(50, frameY: Y, layerX: self.view.frame.width*(1/9), layerY: Y/2, text: LOGOUT, fontSize: 8, imageName: "logout.png", imageEdgeTop: 0, imageEdgeLeft: 2, titleEdgeTop: 40, titleEdgeLeft: -33, cornerRadius: 0, target: self, action: "logout", tag: 100, view: self.view)
             }
         }
-        if TotalCodeFlag == 0{
-        self.navigationItem.leftBarButtonItem = editButtonItem()
         iconButtons[6].tintColor = UIColor.grayColor()
         iconButtons[6].setTitleColor(UIColor.grayColor(), forState: .Normal)
         iconButtons[6].setTitleColor(imageColor, forState: .Selected)
+        if TotalCodeFlag == 0{
+        self.navigationItem.leftBarButtonItem = editButtonItem()
+        iconButtons[7].tintColor = UIColor.grayColor()
+        iconButtons[7].setTitleColor(UIColor.grayColor(), forState: .Normal)
+        iconButtons[7].setTitleColor(imageColor, forState: .Selected)
         }
     }
     func setSelectedButton(button: UIButton, selected: Bool) {
@@ -191,7 +186,6 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     //
-    
     //scrollViewの設定
     func setScrollView(){
         scroll = UIScrollView()
@@ -442,6 +436,18 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
     }
     
+    //Guide用
+    func localGuide(){
+        base = UIView()
+        base.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
+        base.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(base)
+        Guide(GUIDE01, body1: GUIDE02, body2: GUIDE03, image1: "guide1-1.png", image2: "guide1-2.png", view: base)
+        base.addSubview(vc.view)
+        setButton(70, frameY: 40, layerX: self.view.bounds.width-60, layerY: self.view.bounds.height-20, text: SKIP, fontSize: 14, imageName: "1.jpg", imageEdgeTop: 0, imageEdgeLeft: 0, titleEdgeTop: 0, titleEdgeLeft: 0, cornerRadius: 5, target: self, action: "skipAlert", tag: 99, view: base)
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+    }
+    
     //画面遷移系
     func toImageEditView(){
         self.performSegueWithIdentifier("ShowToImageEdit", sender: nil)
@@ -512,6 +518,20 @@ class MyClosetViewController: UIViewController, UICollectionViewDelegate, UIColl
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(action)
         presentViewController(alertController, animated: true, completion: nil)
+    }
+    //
+    //skipHandler用のaleart
+    func skipAlert(){
+        UIAlertController.appearance().tintColor = imageColor
+        let alertController = UIAlertController(title: "", message: SKIP_ALERT, preferredStyle: .Alert)
+        let action = UIAlertAction(title: SKIP, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+            self.base.removeFromSuperview()
+        })
+        let cancelAction = UIAlertAction(title: CANCEL, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+        })
+        alertController.addAction(action)
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     //
     

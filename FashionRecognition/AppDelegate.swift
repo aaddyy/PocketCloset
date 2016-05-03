@@ -22,12 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if TOPS == "Tops"{
             let content1 = OnboardingContentViewController(
                 title: "",
-                body: "",
+                body: CONTENT1,
                 image: nil,
-                buttonText: CONTENT1,
+                buttonText: nil,
                 action: nil
             )
-            content1.buttonFontSize = 18
+            content1.bodyFontSize = 18
             let content2 = OnboardingContentViewController(
                 title: "",
                 body: CONTENT2,
@@ -85,11 +85,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             let content1 = OnboardingContentViewController(
                 title: "",
-                body: "",
+                body: nil,
                 image: nil,
                 buttonText: CONTENT1,
                 action: nil
             )
+            content1.buttonFontSize = 16
             let content2 = OnboardingContentViewController(
                 title: "",
                 body: CONTENT2,

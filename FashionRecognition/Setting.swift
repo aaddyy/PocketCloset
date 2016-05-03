@@ -104,6 +104,20 @@ import Onboard
     var CONFIRM_CLEAR = NSLocalizedString("CONFIRM_CLEAR", comment:"" )
     var CLEAR = NSLocalizedString("CLEAR", comment:"" )
     var SELECT_CLEARITEM = NSLocalizedString("SELECT_CLEARITEM", comment:"" )
+    var CLEAR_SUCCESS =  NSLocalizedString("CLEAR_SUCCESS", comment:"" )
+    var SKIP_ALERT =  NSLocalizedString("SKIP_ALERT", comment:"" )
+    var SKIP =  NSLocalizedString("SKIP", comment:"" )
+    var SKIP_FLAG =  NSLocalizedString("SKIP_FLAG", comment:"" )
+    var GUIDE01 =  NSLocalizedString("GUIDE01", comment:"" )
+    var GUIDE02 =  NSLocalizedString("GUIDE02", comment:"" )
+    var GUIDE03 =  NSLocalizedString("GUIDE03", comment:"" )
+    var GUIDE04 =  NSLocalizedString("GUIDE04", comment:"" )
+    var GUIDE05 =  NSLocalizedString("GUIDE05", comment:"" )
+    var GUIDE06 =  NSLocalizedString("GUIDE06", comment:"" )
+    var GUIDE07 =  NSLocalizedString("GUIDE07", comment:"" )
+    var GUIDE08 =  NSLocalizedString("GUIDE08", comment:"" )
+    var GUIDE09 =  NSLocalizedString("GUIDE09", comment:"" )
+    var HELP =  NSLocalizedString("HELP", comment:"" )
 
     //setImage
     func setImageView(X:CGFloat, Y:CGFloat, sizeX:CGFloat, sizeY:CGFloat, image:UIImage, tag:Int,view:UIView){
@@ -163,8 +177,9 @@ import Onboard
     }
     //setButton
     var iconButtons:Array<UIButton> = []
+    var button:UIButton!
     func setButton(frameX:CGFloat, frameY:CGFloat, layerX:CGFloat, layerY:CGFloat, text: String,fontSize:CGFloat, imageName:String,imageEdgeTop: CGFloat, imageEdgeLeft:CGFloat,  titleEdgeTop: CGFloat, titleEdgeLeft:CGFloat, cornerRadius:CGFloat, target:AnyObject, action: Selector, tag: Int, view: UIView ){
-        let button = UIButton()
+            button = UIButton()
             button.frame = CGRectMake(0,0,frameX,frameY)
             button.backgroundColor = UIColor.whiteColor()
             button.layer.masksToBounds = true
@@ -173,7 +188,7 @@ import Onboard
             button.titleLabel!.font = UIFont(name: "HiraKakuProN-W3", size: fontSize)
             button.titleLabel?.numberOfLines = 2
         if imageName != "1.jpg"{
-                let backImage = UIImage(named: imageName)!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            let backImage = UIImage(named: imageName)!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             button.setImage(backImage, forState: .Normal)
             button.imageEdgeInsets = UIEdgeInsetsMake(imageEdgeTop, imageEdgeLeft, 0, 0)
             button.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeTop, titleEdgeLeft, 0, 0)
@@ -191,6 +206,34 @@ import Onboard
             view.addSubview(button)
             iconButtons.append(button)
         }
+    func setButton2(frameX:CGFloat, frameY:CGFloat, layerX:CGFloat, layerY:CGFloat, text: String,fontSize:CGFloat, imageName:String,imageEdgeTop: CGFloat, imageEdgeLeft:CGFloat,  titleEdgeTop: CGFloat, titleEdgeLeft:CGFloat, cornerRadius:CGFloat, target:AnyObject, action: Selector, tag: Int, view: UIView ){
+        button = UIButton()
+        button.frame = CGRectMake(0,0,frameX,frameY)
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.masksToBounds = true
+        button.setTitle(text, forState: .Normal)
+        button.setTitleColor(imageColor, forState: .Normal)
+        button.titleLabel!.font = UIFont(name: "HiraKakuProN-W3", size: fontSize)
+        button.titleLabel?.numberOfLines = 2
+        if imageName != "1.jpg"{
+            let backImage = UIImage(named: imageName)!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            button.setImage(backImage, forState: .Normal)
+            button.imageEdgeInsets = UIEdgeInsetsMake(imageEdgeTop, imageEdgeLeft, 0, 0)
+            button.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeTop, titleEdgeLeft, 0, 0)
+            button.layer.borderColor = UIColor.whiteColor().CGColor
+        }else{
+            button.titleLabel?.textAlignment = NSTextAlignment.Center
+            button.layer.borderColor = imageColor.CGColor
+        }
+        button.layer.cornerRadius = cornerRadius
+        button.layer.position = CGPoint(x: layerX, y: layerY)
+        button.layer.borderWidth = 2
+        button.tintColor = imageColor
+        button.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+        button.tag = tag
+        view.addSubview(button)
+        iconButtons.append(button)
+    }
 
  //画像解析
     //解析中画面
@@ -272,132 +315,53 @@ import Onboard
     var window: UIWindow?
     var CONTENT1 = NSLocalizedString("CONTENT1", comment:"" )
     var CONTENT2 = NSLocalizedString("CONTENT2", comment:"" )
-    var CONTENT3 = NSLocalizedString("CONTENT3", comment:"" )
-    var CONTENT4 = NSLocalizedString("CONTENT4", comment:"" )
     var vc:OnboardingViewController!
-    func Guide(view:UIView){
-    if TOPS == "Tops"{
+    func Guide(title:String,body1:String,body2:String,image1:String,image2:String,view:UIView){
         let content1 = OnboardingContentViewController(
-            title: "",
-            body: "",
-            image: nil,
-            buttonText: CONTENT1,
+            title: title,
+            body: body1,
+            image: UIImage(named: image1),
+            buttonText: "",
             action: nil
         )
-        content1.buttonFontSize = 18
+        content1.bodyFontSize = 16
         let content2 = OnboardingContentViewController(
-            title: "",
-            body: CONTENT2,
-            image: UIImage(named: "intro1en.png"),
+            title: title,
+            body: body2,
+            image: UIImage(named: image2),
             buttonText: "",
             action: nil
         )
         content2.bodyFontSize = 16
-        let content3 = OnboardingContentViewController(
-            title: "",
-            body: CONTENT3,
-            image: UIImage(named: "intro2en.png"),
-            buttonText: "",
-            action: nil
-        )
-        content3.bodyFontSize = 16
-        let content4 = OnboardingContentViewController(
-            title: "",
-            body: CONTENT4,
-            image: UIImage(named: "intro3en.png"),
-            buttonText: "",
-            action: nil
-        )
-        content4.bodyFontSize = 16
-        let contentArray = [content1, content2, content3,content4]
-        for (var i=0; i<4; i++){
-            contentArray[i].iconHeight = (view.bounds.height)*0.8
-            contentArray[i].iconWidth = (view.bounds.width)*0.8
-            contentArray[i].topPadding =  -10
+        let contentArray = [content1, content2]
+        for (var i=0; i<2; i++){
+            contentArray[i].iconHeight = (view.bounds.height)*0.5
+            contentArray[i].iconWidth = (view.bounds.width)
+            contentArray[i].titleFontSize = 18
+            contentArray[i].bodyFontSize = 15
+            contentArray[i].topPadding =  0
             contentArray[i].underIconPadding = 0
-            contentArray[i].underTitlePadding = 0
-            contentArray[i].bottomPadding = 10
+            contentArray[i].underTitlePadding = 30
+            contentArray[i].bottomPadding = 0
             contentArray[i].titleTextColor = imageColor
-            contentArray[i].bodyTextColor = imageColor
+            contentArray[i].bodyTextColor = UIColor.blackColor()
             contentArray[i].buttonTextColor = imageColor
         }
         vc = OnboardingViewController(
             backgroundImage: nil,
-            contents: [content1, content2, content3,content4]
+            contents: [content1, content2]
         )
         vc.allowSkipping = true
         vc.shouldMaskBackground = false
         vc.view.backgroundColor = UIColor.whiteColor()
         vc.view.contentMode = UIViewContentMode.ScaleAspectFit
+        vc.view.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height-60)
         vc.skipButton.setTitle("Skip", forState: .Normal)
         vc.skipButton.setTitleColor(imageColor, forState: .Normal)
+        vc.skipButton.frame = CGRectMake(view.bounds.width-80 ,view.bounds.height-40, 40, 40)
         vc.pageControl.pageIndicatorTintColor = UIColor.grayColor()
         vc.pageControl.currentPageIndicatorTintColor = imageColor
-        vc.skipHandler = { _ in
-        }
-    }else{
-        let content1 = OnboardingContentViewController(
-            title: "",
-            body: "",
-            image: nil,
-            buttonText: CONTENT1,
-            action: nil
-        )
-        let content2 = OnboardingContentViewController(
-            title: "",
-            body: CONTENT2,
-            image: UIImage(named: "intro1.png"),
-            buttonText: "",
-            action: nil
-        )
-        content2.bodyFontSize = 16
-        let content3 = OnboardingContentViewController(
-            title: "",
-            body: CONTENT3,
-            image: UIImage(named: "intro2.png"),
-            buttonText: "",
-            action: nil
-        )
-        content3.bodyFontSize = 16
-        let content4 = OnboardingContentViewController(
-            title: "",
-            body: CONTENT4,
-            image: UIImage(named: "intro3.png"),
-            buttonText: "",
-            action: nil
-        )
-        content4.bodyFontSize = 16
-        let contentArray = [content1, content2, content3,content4]
-        for (var i=0; i<4; i++){
-            contentArray[i].iconHeight = (view.bounds.height)*0.8
-            contentArray[i].iconWidth = (view.bounds.width)*0.8
-            contentArray[i].topPadding =  -10
-            contentArray[i].underIconPadding = 0
-            contentArray[i].underTitlePadding = 0
-            contentArray[i].bottomPadding = 10
-            contentArray[i].titleTextColor = imageColor
-            contentArray[i].bodyTextColor = imageColor
-            contentArray[i].buttonTextColor = imageColor
-        }
-        vc = OnboardingViewController(
-            backgroundImage: nil,
-            contents: [content1, content2, content3,content4]
-        )
-        vc.allowSkipping = true
-        vc.shouldMaskBackground = false
-        vc.view.backgroundColor = UIColor.whiteColor()
-        vc.view.contentMode = UIViewContentMode.ScaleAspectFit
-        vc.view.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height-50)
-        vc.skipButton.setTitle("Skip", forState: .Normal)
-        vc.skipButton.setTitleColor(imageColor, forState: .Normal)
-        vc.skipButton.frame = CGRectMake(view.bounds.width-80 ,view.bounds.height-50, 50, 50)
-        vc.pageControl.pageIndicatorTintColor = UIColor.grayColor()
-        vc.pageControl.currentPageIndicatorTintColor = imageColor
-        vc.pageControl.frame = CGRectMake(0, view.bounds.height-50, view.bounds.width, 50)
-        vc.skipHandler = { _ in
-            
-        }
-        }
+        vc.pageControl.frame = CGRectMake(0, view.bounds.height-40, view.bounds.width, 40)
     }
 
     //Myクローゼットの削除・更新

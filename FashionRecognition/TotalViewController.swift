@@ -11,22 +11,24 @@ class TotalViewController: UIViewController{
     var Pinch:UIPinchGestureRecognizer!
     var tempFloat:CGFloat = 100
     var Touch:UITouch!
+    var subtractionFlag = 0
+    var tempImageView:UIImageView!
+    var tempImageViews:Array<UIImageView> = []
+    var tempImageViews2:Array<UIImageView> = []
+    var tempImageViews3:Array<UIImageView> = []
+    var subtractionView:UIView!
+    var subtractionArray:Array<Int> = []
+    var temp2:UIView!
+    var base:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if TOPS == "Tops"{
-//            Expression(self.view, guideImage: "guide2en.png")
-//        }else{
-//            Expression(self.view, guideImage: "guide2.png")
-//        }
-//        guideButton.addTarget(self, action: "removeGuide", forControlEvents: .TouchUpInside)
     }
     override func viewDidAppear(animated: Bool) {
         if PFUser.currentUser() == nil {
             self.loadView()
             consent()
         }else{
-        print(TotalCodeArray.description)
         imageItems = []
         setTopView()
         setTotalView()
@@ -40,6 +42,10 @@ class TotalViewController: UIViewController{
         setButton(90, frameY: 80, layerX: self.view.bounds.width*(1/4), layerY: 50, text: EDITCLEAR2, fontSize:12, imageName: "clear.png", imageEdgeTop: 0, imageEdgeLeft: 28,titleEdgeTop:55,titleEdgeLeft: -25, cornerRadius: 10,target: self, action: "itemClear", tag:5, view: self.view)
         setButton(90, frameY: 80, layerX: self.view.bounds.width*(2/4), layerY: 50, text: REGISTRATION_ITEM3, fontSize:11, imageName: "plus.png", imageEdgeTop: 0, imageEdgeLeft: 28,titleEdgeTop:55,titleEdgeLeft: -20, cornerRadius: 10,target: self, action: "toMyCloset", tag:5, view: self.view)
         setButton(90, frameY: 80, layerX: self.view.bounds.width*(3/4), layerY: 50, text: REGISTRATION_ITEM4, fontSize:12, imageName: "register.png", imageEdgeTop: 0, imageEdgeLeft: 25,titleEdgeTop:55,titleEdgeLeft: -25, cornerRadius: 10,target: self, action: "RegistrationCode", tag:5, view: self.view)
+        setButton(50, frameY: 60, layerX: self.view.frame.width*(9/10), layerY: 30, text: HELP, fontSize: 8, imageName: "help.png", imageEdgeTop: 0, imageEdgeLeft: 2, titleEdgeTop: 40, titleEdgeLeft: -33, cornerRadius: 0, target: self, action: "localGuide", tag: 100, view: self.view)
+        iconButtons[5].tintColor = UIColor.grayColor()
+        iconButtons[5].setTitleColor(UIColor.grayColor(), forState: .Normal)
+        iconButtons[5].setTitleColor(imageColor, forState: .Selected)
     }
     //トータルコーデの検討エリア
     func setTotalView(){
@@ -48,6 +54,9 @@ class TotalViewController: UIViewController{
         totalView.backgroundColor = UIColor.whiteColor()
         totalView.layer.borderColor = imageColor.CGColor
         totalView.layer.borderWidth = 4
+        totalView.layer.shadowColor = UIColor.grayColor().CGColor
+        totalView.layer.shadowOpacity = 1
+        totalView.layer.shadowOffset = CGSizeMake(3, 3)
         self.view.addSubview(totalView)
         
         if TotalCodeArray != []{
@@ -96,15 +105,27 @@ class TotalViewController: UIViewController{
     //
     //タッチイベント(画像の移動)
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (touches.first!.view != totalView)&&(touches.first!.view != self.view) {
+        if (touches.first!.view != totalView)&&(touches.first!.view != self.view)&&(touches.first!.view != subtractionView)&&(touches.first!.view != temp2){
         Touch = touches.first!
         touchTag = Touch.view?.tag
+            if(subtractionFlag == 1){
+                var tempWidth = Int((Touch.view?.layer.borderWidth)!)
+                switch tempWidth{
+                case 0:
+                    Touch.view?.layer.borderColor = imageColor.CGColor
+                    Touch.view?.layer.borderWidth = 3
+                    Touch.view?.layer.cornerRadius = 5
+                case 3:
+                    Touch.view?.layer.borderColor = UIColor.whiteColor().CGColor
+                    Touch.view?.layer.borderWidth = 0
+                default: break
+                }
+            }
         }
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        // タッチイベントを取得
-        // ドラッグ前の座標, Swift 1.2 から
-        if (touches.first!.view != totalView)&&(touches.first!.view != self.view) {
+    if subtractionFlag == 0{
+        if (touches.first!.view != totalView)&&(touches.first!.view != self.view){
             let preDx = Touch.previousLocationInView(totalView).x
             let preDy = Touch.previousLocationInView(totalView).y
             // ドラッグ後の座標
@@ -125,6 +146,7 @@ class TotalViewController: UIViewController{
         }
         imageItems[touchTag!].frame = viewFrame
         }
+    }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
@@ -197,26 +219,103 @@ class TotalViewController: UIViewController{
         alertController.addAction(cancelAction)
         presentViewController(alertController, animated: true, completion: nil)
     }
-//    //アイテム削除
+    //アイテム削除
     func subtraction(){
-//        var temp = UIView()
-//        temp.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
-//        temp.backgroundColor = UIColor.grayColor()
-//        temp.alpha = 0.6
-//        self.view.addSubview(temp)
-//        setLabel(self.view.bounds.width*(2/3), frameY: 80, tag: 0, text: SELECT_CLEARITEM, fontSize: 14, layerX: self.view.bounds.width*(1/2), layerY: self.view.bounds.height*(1/6), view: temp)
-//        var temp2 = UIView()
-//        temp2.frame = CGRectMake(0, self.view.bounds.height*(1/5), self.view.bounds.width, self.view.bounds.height*(2/3))
-//        temp2.backgroundColor = UIColor.whiteColor()
-//        temp.addSubview(temp2)
-//        var count = TotalCodeArray.count
-//        for (var i=0; i<count; i++){
-//            
-//        
-//        }
-//        
+        subtractionFlag = 1
+        tempImageViews = []
+        subtractionArray = []
+        subtractionView = UIView()
+        subtractionView.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
+        subtractionView.backgroundColor = UIColor.grayColor()
+        self.view.addSubview(subtractionView)
+        setLabel(self.view.bounds.width*(2/3), frameY: 50, tag: 0, text: SELECT_CLEARITEM, fontSize: 16, layerX: self.view.bounds.width*(1/2), layerY: self.view.bounds.height*(1/6), view: subtractionView)
+        temp2 = UIView()
+        temp2.frame = CGRectMake(0, self.view.bounds.height*(1/5), self.view.bounds.width, self.view.bounds.height*(2/3))
+        temp2.backgroundColor = UIColor.whiteColor()
+        subtractionView.addSubview(temp2)
+        var count = TotalCodeArray.count
+        var tempX:CGFloat = 8
+        var tempY:CGFloat = 8
+        var tempNumber:CGFloat = 0
+        for (var i=0; i<count; i++){
+            tempImageView = UIImageView()
+            tempImageView.contentMode = UIViewContentMode.ScaleAspectFit
+            tempImageView.frame = CGRectMake(tempX, tempY, 100, 100)
+            tempImageView.image = TotalCodeArray[i]
+            tempImageView.userInteractionEnabled = true
+            tempImageView.layer.borderWidth = 0
+            tempImageView.tag = i
+            temp2.addSubview(tempImageView)
+            tempImageViews.append(tempImageView)
+            tempNumber++
+            tempX = tempX + 100*tempNumber + 5
+            if(tempX > (self.view.bounds.width - 105)) {
+                tempX = 8
+                tempY = tempY + 108
+            }
+        }
+        setButton(100, frameY: 40, layerX: self.view.bounds.width*(1/3), layerY: self.view.bounds.height*(11/12), text: CLEAR, fontSize: 15, imageName: "1.jpg", imageEdgeTop: 0, imageEdgeLeft: 0, titleEdgeTop: 0, titleEdgeLeft: 0, cornerRadius: 5, target: self, action: "subtractionAction", tag: 0, view: subtractionView)
+        setButton(100, frameY: 40, layerX: self.view.bounds.width*(2/3), layerY: self.view.bounds.height*(11/12), text: CANCEL, fontSize: 15, imageName: "1.jpg", imageEdgeTop: 0, imageEdgeLeft: 0, titleEdgeTop: 0, titleEdgeLeft: 0, cornerRadius: 5, target: self, action: "subtractionCancel", tag: 0, view: subtractionView)
     }
-
+    func subtractionAction(){
+        var count = tempImageViews.count
+        for(var i=0; i<count; i++){
+            if tempImageViews[i].layer.borderWidth == 0{
+                subtractionArray.append(i)
+            }
+        }
+        if count == subtractionArray.count{
+            alertTitle = WARNINGADD
+            AlertTitle()
+            presentViewController(alertController, animated: true, completion: nil)
+        }else{
+            var tempcount = subtractionArray.count
+            TotalCodeArray = []
+            for(var j=0; j<tempcount; j++){
+            TotalCodeArray.append(tempImageViews[subtractionArray[j]].image!)
+            }
+            subtractionView.removeFromSuperview()
+            subtractionFlag = 0
+            self.loadView()
+            self.viewDidAppear(false)
+        }
+    }
+    func subtractionCancel(){
+        subtractionView.removeFromSuperview()
+        subtractionFlag = 0
+    }
+    //
+    
+    //Guide用
+    func localGuide(){        
+        base = UIView()
+        base.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
+        base.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(base)
+        if TOPS == "Tops"{
+        Guide(GUIDE04, body1: GUIDE05, body2: GUIDE06, image1: "guide2-1en.png", image2: "guide2-2.png", view: base)
+        }else{
+        Guide(GUIDE04, body1: GUIDE05, body2: GUIDE06, image1: "guide2-1ja.png", image2: "guide2-2.png", view: base)
+        }
+        base.addSubview(vc.view)
+        setButton(70, frameY: 40, layerX: self.view.bounds.width-60, layerY: self.view.bounds.height-20, text: SKIP, fontSize: 14, imageName: "1.jpg", imageEdgeTop: 0, imageEdgeLeft: 0, titleEdgeTop: 0, titleEdgeLeft: 0, cornerRadius: 5, target: self, action: "skipAlert", tag: 99, view: base)
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+        }
+    //skipHandler用のaleart
+    func skipAlert(){
+        UIAlertController.appearance().tintColor = imageColor
+        let alertController = UIAlertController(title: "", message: SKIP_ALERT, preferredStyle: .Alert)
+        let action = UIAlertAction(title: SKIP, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+            self.base.removeFromSuperview()
+        })
+        let cancelAction = UIAlertAction(title: CANCEL, style: .Default,handler:{ (action:UIAlertAction!) -> Void in
+        })
+        alertController.addAction(action)
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    //
+    
     
     //ユーザー登録の確認
     func consent() {

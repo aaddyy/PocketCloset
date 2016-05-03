@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4C42C0D5F196CA52D668B239'
+               BlueprintIdentifier = '236D45E25A3EF0E6266BDCB6'
                BlueprintName = 'NeetMSTranslator'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'NeetMSTranslator.framework'>

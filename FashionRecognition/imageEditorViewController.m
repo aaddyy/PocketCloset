@@ -38,6 +38,8 @@
     EditorViewController *forinside;
     UIButton * touch;
     UIButton * eraser;
+    UIButton * logout;
+    UIButton * help;
 }
 
 - (void)viewDidLoad {
@@ -46,14 +48,15 @@
     [AdobeUXAuthManager.sharedManager setAuthenticationParametersWithClientID: CC_CLIENT_ID
                                                                  clientSecret: CC_CLIENT_SECRET
                                                                  enableSignUp: YES];
-    
+    [AdobeUXAuthManager.sharedManager login:nil onSuccess:nil onError:nil];
+
     if ([forinside.flag isEqual: @"fromMyCloset"]){
     forinside.text = forinside.TOMYCLOSET;
     forinside.imageName = @"back.png";
     forinside.setButton;
     _backButton = forinside.iconButtons[0];
     [_backButton setFrame: CGRectMake(0, 0, 100, 60)];
-    _backButton.layer.position = CGPointMake((self.view.bounds.size.width/4)*1,35);
+    _backButton.layer.position = CGPointMake((self.view.bounds.size.width/6)*1,35);
     [_backButton addTarget:self action: @selector(BackMyCloset) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backButton];
     _backButton.hidden = YES;
@@ -63,7 +66,7 @@
     forinside.setButton;
     _backButton = forinside.iconButtons[0];
     [_backButton setFrame: CGRectMake(0, 0, 100, 60)];
-    _backButton.layer.position = CGPointMake((self.view.bounds.size.width/4)*1,35);
+    _backButton.layer.position = CGPointMake((self.view.bounds.size.width/6)*1,35);
     [_backButton addTarget:self action: @selector(Back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backButton];
     _backButton.hidden = YES;
@@ -74,7 +77,7 @@
     forinside.setButton;
     _showHideResultsButton = forinside.iconButtons[1];
     [_showHideResultsButton setFrame: CGRectMake(0, 0, 100, 60)];
-    _showHideResultsButton.layer.position = CGPointMake((self.view.bounds.size.width/4)*3,35);
+    _showHideResultsButton.layer.position = CGPointMake((self.view.bounds.size.width/6)*3,35);
     [_showHideResultsButton addTarget:self action: @selector(showHideResults) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_showHideResultsButton];
     _showHideResultsButton.hidden = YES;
@@ -108,7 +111,29 @@
     [eraser addTarget:self action: @selector(Eraser) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:eraser];
     eraser.hidden = YES;
+    
+    forinside.text = forinside.HELP;
+    forinside.imageName = @"help.png";
+    forinside.setButton;
+    help = forinside.iconButtons[5];
+    [help setFrame: CGRectMake(0, 0, 100, 60)];
+    help.layer.position = CGPointMake((self.view.bounds.size.width/6)*5,35);
+    [help addTarget:self action: @selector(LocalGuide) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:help];
+    help.hidden = YES;
+    
+    //Eraser
 
+//    forinside.text = forinside.LOGOUT;
+//    forinside.imageName = @"logout.png";
+//    forinside.setButton;
+//    logout = forinside.iconButtons[5];
+//    [logout setFrame: CGRectMake(0, 0, 100, 60)];
+//    logout.layer.position = CGPointMake((self.view.bounds.size.width/2),35);
+//    [logout addTarget:self action: @selector(Logout) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:logout];
+//    logout.hidden = YES;
+    
     // initialize the views to nil
     _magicSelectionView = nil;
     _resultsView = nil;
@@ -172,9 +197,8 @@
                  weakSelf->_backButton.hidden = NO;
                  weakSelf->touch.hidden = NO;
                  weakSelf->eraser.hidden = NO;
+                 weakSelf->help.hidden = NO;
                  [weakSelf->_loadPuppyLogoutButton setTitle:BUTTON_TITLE_LOGOUT forState:UIControlStateNormal];
-                 forinside.GuideView = self.view;
-                 forinside.Guide;
              }
          }
          ];
@@ -192,6 +216,7 @@
         _backButton.hidden = YES;
         touch.hidden = YES;
         eraser.hidden = YES;
+        help.hidden = YES;
         [_loadPuppyLogoutButton setTitle:BUTTON_TITLE_LOAD_PUPPY forState:UIControlStateNormal];
     }
 }
@@ -204,6 +229,7 @@
         _loadPuppyLogoutButton.hidden   = NO;
         touch.hidden = NO;
         eraser.hidden = NO;
+        help.hidden = NO;
         [_registorButton removeFromSuperview];
         [_showHideResultsButton setTitle:forinside.SHOW_EDITED_ITEM forState:UIControlStateNormal];
         [_resultsView removeFromSuperview];
@@ -254,12 +280,14 @@
         _loadPuppyLogoutButton.hidden   = YES;
         touch.hidden = YES;
         eraser.hidden = YES;
+        help.hidden = YES;
 
+        forinside.iconButtons = nil;
         if ([forinside.flag isEqual: @"fromMyCloset"]){
         forinside.text = forinside.UPDATE;
         forinside.imageName = @"register.png";
         forinside.setButton;
-        _registorButton = forinside.iconButtons[5];
+        _registorButton = forinside.iconButtons[0];
         [_registorButton setFrame: CGRectMake(0, 0, 100, 60)];
         _registorButton.layer.position = CGPointMake((self.view.bounds.size.width/6)*3,35);
         [_registorButton addTarget:self action: @selector(UpdateC) forControlEvents:UIControlEventTouchUpInside];
@@ -267,7 +295,7 @@
         forinside.text = forinside.REGISTRATION_ITEM;
         forinside.imageName = @"register.png";
         forinside.setButton;
-        _registorButton = forinside.iconButtons[5];
+        _registorButton = forinside.iconButtons[0];
         [_registorButton setFrame: CGRectMake(0, 0, 100, 60)];
         _registorButton.layer.position = CGPointMake((self.view.bounds.size.width/6)*3,35);
         [_registorButton addTarget:self action: @selector(RegistrationC) forControlEvents:UIControlEventTouchUpInside];
@@ -276,7 +304,28 @@
         _registorButton.hidden = NO;
     }
 }
+- (void)Logout{
+    [AdobeUXAuthManager.sharedManager logout: nil onError: nil];
+    [self BackMyCloset];
+}
 
+- (void)LocalGuide{
+    forinside.iconButtons = nil;
+    forinside.localGuide;
+    forinside.text = forinside.SKIP;
+    forinside.setButtonSkip;
+    help = forinside.iconButtons[0];
+    [help setFrame: CGRectMake(0, 0, 70, 40)];
+    help.layer.position = CGPointMake(self.view.bounds.size.width-60,self.view.bounds.size.height-20);
+    [help addTarget:self action: @selector(Skip) forControlEvents:UIControlEventTouchUpInside];
+    [forinside.base addSubview:help];
+    [self.view addSubview:(forinside.base)];
+    [forinside.base addSubview:help];
+}
+- (void)Skip{
+    forinside.skipAlert;
+    [self presentViewController:forinside.alertController animated:true completion:nil];
+}
 - (void)UpdateC{
     ForObjectiveC *forObjectiveC = [ForObjectiveC new];
     forObjectiveC.ObjectiveCSave = foregroundBits;

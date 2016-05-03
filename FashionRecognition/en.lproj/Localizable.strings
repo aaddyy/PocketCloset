@@ -36,7 +36,7 @@
 "FROM_ALBUM" = "From Album";
 "ANALYZE" = "Analyze";
 "ANALYZING_ITEM" = "Analyzing Item...";
-"REDO" = "Return Beginning";
+"REDO" = "Return";
 "BACK_TO_THE_BIGGINING" = "Back";
 "TO_IMAGE_EDITING" = "Image Edit";
 "BACK" = "Back";
@@ -68,7 +68,7 @@
 "EDIT_WAY" = "Touch item's area!";
 "RESELECT" = "Reselect";
 "TOMYCLOSET" = "To MyCloset";
-"ITEMTOUCH" = "Select item's area!";
+"ITEMTOUCH" = "Touch";
 "ERASER" = "Eraser";
 "REGISTRATION_ITEM3" = "Select Items";
 "ADDCONSENT" = "Add selected Items?";
@@ -83,6 +83,20 @@
 "CONFIRM_CLEAR" = "Clear selected items?";
 "CLEAR" = "Subtraction";
 "SELECT_CLEARITEM" = "Which items do you clear?";
+"CLEAR_SUCCESS" = "Clear Success";
+"SKIP_ALERT" = "Skip this description?";
+"SKIP" = "Skip";
+"SKIP_FLAG" = "Don't show from the next time";
+"GUIDE01" = "MyCloset";
+"GUIDE02" = "Registerd items are categorized automatically";
+"GUIDE03" = "Tapping The Item Show Detail Information.\nLongpressing The Item Show Edit Mode.";
+"GUIDE04" = "Total Coordinate";
+"GUIDE05" = "・Clear Items\nClear all thinking items\n\n・Select Item\nSelect items from MyCloset\n\n・Registration\nSave this coordinate as a picture";
+"GUIDE06" = "You can think your coordinate.\nItems can be moved by drag&drop,\ncan be scaled by pinch.";
+"GUIDE07" = "Image Editing";
+"GUIDE08" = "・Touch\nTo the item selecting\n(Defaut is this mode)\n\nEraser\nTo the eraser mode\n\nShow Edited\nShow edit result\n\nRegistration\nItem register/update";
+"GUIDE09" = "Touch the item area\nYou can cut background";
+"HELP" = "Help";
 
 
 
