@@ -118,6 +118,7 @@ import Onboard
     var GUIDE08 =  NSLocalizedString("GUIDE08", comment:"" )
     var GUIDE09 =  NSLocalizedString("GUIDE09", comment:"" )
     var HELP =  NSLocalizedString("HELP", comment:"" )
+    var IF_YOU_USE_TOTALCODE_PLEASE_DO_USER_LOGIN =  NSLocalizedString("IF_YOU_USE_TOTALCODE_PLEASE_DO_USER_LOGIN", comment:"" )
 
     //setImage
     func setImageView(X:CGFloat, Y:CGFloat, sizeX:CGFloat, sizeY:CGFloat, image:UIImage, tag:Int,view:UIView){

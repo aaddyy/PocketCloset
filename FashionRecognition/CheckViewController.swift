@@ -111,7 +111,7 @@ class CheckViewController: UIViewController {
     func consent2() {
         UIAlertController.appearance().tintColor = imageColor
         let alertController = UIAlertController(title: CONSENT2TITLE, message: "", preferredStyle: .Alert)
-        let signUpAction = UIAlertAction(title: USER_REGISTER_LOGIN, style: .Default,
+        let signUpAction = UIAlertAction(title: "OK", style: .Default,
             handler:{ (action:UIAlertAction!) -> Void in
                 self.execution()
         })

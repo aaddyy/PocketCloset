@@ -39,9 +39,9 @@ class TotalViewController: UIViewController{
     }
     //TopView生成
     func setTopView(){
-        setButton(90, frameY: 80, layerX: self.view.bounds.width*(1/4), layerY: 50, text: EDITCLEAR2, fontSize:12, imageName: "clear.png", imageEdgeTop: 0, imageEdgeLeft: 28,titleEdgeTop:55,titleEdgeLeft: -25, cornerRadius: 10,target: self, action: "itemClear", tag:5, view: self.view)
-        setButton(90, frameY: 80, layerX: self.view.bounds.width*(2/4), layerY: 50, text: REGISTRATION_ITEM3, fontSize:11, imageName: "plus.png", imageEdgeTop: 0, imageEdgeLeft: 28,titleEdgeTop:55,titleEdgeLeft: -20, cornerRadius: 10,target: self, action: "toMyCloset", tag:5, view: self.view)
-        setButton(90, frameY: 80, layerX: self.view.bounds.width*(3/4), layerY: 50, text: REGISTRATION_ITEM4, fontSize:12, imageName: "register.png", imageEdgeTop: 0, imageEdgeLeft: 25,titleEdgeTop:55,titleEdgeLeft: -25, cornerRadius: 10,target: self, action: "RegistrationCode", tag:5, view: self.view)
+        setButton(90, frameY: 80, layerX: self.view.bounds.width*(1/4), layerY: 50, text: EDITCLEAR2, fontSize:10, imageName: "clear.png", imageEdgeTop: 0, imageEdgeLeft: 28,titleEdgeTop:55,titleEdgeLeft: -25, cornerRadius: 10,target: self, action: "itemClear", tag:5, view: self.view)
+        setButton(90, frameY: 80, layerX: self.view.bounds.width*(2/4), layerY: 50, text: REGISTRATION_ITEM3, fontSize:10, imageName: "plus.png", imageEdgeTop: 0, imageEdgeLeft: 28,titleEdgeTop:55,titleEdgeLeft: -20, cornerRadius: 10,target: self, action: "toMyCloset", tag:5, view: self.view)
+        setButton(90, frameY: 80, layerX: self.view.bounds.width*(3/4), layerY: 50, text: REGISTRATION_ITEM4, fontSize:10, imageName: "register.png", imageEdgeTop: 0, imageEdgeLeft: 30,titleEdgeTop:55,titleEdgeLeft: -25, cornerRadius: 10,target: self, action: "RegistrationCode", tag:5, view: self.view)
         setButton(50, frameY: 60, layerX: self.view.frame.width*(9/10), layerY: 30, text: HELP, fontSize: 8, imageName: "help.png", imageEdgeTop: 0, imageEdgeLeft: 2, titleEdgeTop: 40, titleEdgeLeft: -33, cornerRadius: 0, target: self, action: "localGuide", tag: 100, view: self.view)
         iconButtons[5].tintColor = UIColor.grayColor()
         iconButtons[5].setTitleColor(UIColor.grayColor(), forState: .Normal)
@@ -320,7 +320,7 @@ class TotalViewController: UIViewController{
     //ユーザー登録の確認
     func consent() {
         UIAlertController.appearance().tintColor = imageColor
-        let alertController = UIAlertController(title: IF_YOU_USE_MY_CLOSET_PLEASE_DO_USER_LOGIN, message: "", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: IF_YOU_USE_TOTALCODE_PLEASE_DO_USER_LOGIN, message: "", preferredStyle: .Alert)
         let signUpAction = UIAlertAction(title: USER_REGISTER_LOGIN, style: .Default,
             handler:{ (action:UIAlertAction!) -> Void in
                 self.execution()

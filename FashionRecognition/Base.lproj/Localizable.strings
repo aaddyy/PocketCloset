@@ -97,6 +97,7 @@
 "GUIDE08" = "・Touch\nTo the item selecting\n(Defaut is this mode)\n\nEraser\nTo the eraser mode\n\nShow Edited\nShow edit result\n\nRegistration\nItem register/update";
 "GUIDE09" = "Touch the item area\nYou can cut background";
 "HELP" = "Help";
+"IF_YOU_USE_TOTALCODE_PLEASE_DO_USER_LOGIN" = "If You Use TotalCoordinate, Please Do User Login";
 
 
 
