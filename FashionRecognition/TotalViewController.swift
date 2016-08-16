@@ -170,7 +170,7 @@ class TotalViewController: UIViewController{
         }else{
             Registration()
             alertMessage = REGISTRATION_SUCCESS2
-            AlertMessage2()
+            AlertMessage()
             presentViewController(alertController, animated: true, completion: nil)
         }
     }
